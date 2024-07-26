@@ -13,17 +13,17 @@
         /* Add custom styles for typing effect */
         .typing-container {
             text-align: center;
-            height: 8rem; /* Increased height for larger text */
+            height: 6rem; /* Reduced height for smaller text */
         }
 
         .typing-text {
-            font-size: 6rem; /* Increased font size for bigger letters */
+            font-size: 4rem; /* Reduced font size for smaller letters */
             font-family: 'Arial', sans-serif; /* Adjust as needed to match the original font family */
             white-space: nowrap;
             overflow: hidden;
-            border-right: .15em solid orange; /* Cursor effect */
+            border-right: .1em solid orange; /* Cursor effect */
             animation: blink-caret .75s step-end infinite;
-            line-height: 6rem; /* Adjusted line height to match font size */
+            line-height: 4rem; /* Adjusted line height to match font size */
             padding: 0; /* Remove any default padding */
             margin: 0; /* Remove any default margin */
         }
@@ -38,12 +38,12 @@
             position: fixed; /* Fixed position for staying at bottom-right */
             bottom: 0;
             right: 0;
-            width: 300px; /* Adjust width as needed */
-            height: 400px; /* Adjust height as needed */
+            width: 250px; /* Reduced width */
+            height: 300px; /* Reduced height */
             max-width: 100%; /* Ensure it doesn't exceed viewport width */
             max-height: 100%; /* Ensure it doesn't exceed viewport height */
             z-index: 1000; /* Ensure it's above other content */
-            border: 2px solid #ccc; /* Optional: Add border for visibility */
+            border: 1px solid #ccc; /* Optional: Add border for visibility */
             border-radius: 8px; /* Optional: Rounded corners */
         }
 
@@ -52,7 +52,7 @@
             height: 100%;
             border: none;
         }
-        
+
         /* New styles for social icons and labels */
         .social-icons {
             display: flex;
@@ -61,7 +61,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            gap: 30px; /* Space between icons */
+            gap: 20px; /* Reduced space between icons */
             position: relative; /* Ensure it doesn't overlap the chatbot */
             z-index: 10; /* Ensure it's below the chatbot */
         }
@@ -71,13 +71,22 @@
         }
 
         .social-icons .icon {
-            font-size: 2rem; /* Adjust icon size */
+            font-size: 1.5rem; /* Reduced icon size */
         }
 
         .social-icons .label {
             display: block;
-            margin-top: 10px; /* Space between icon and text */
-            font-size: 1.2rem; /* Increased font size for labels */
+            margin-top: 5px; /* Reduced space between icon and text */
+            font-size: 1rem; /* Reduced font size for labels */
+        }
+
+        /* Styles for the carousel image */
+        .carousel-item img {
+            width: 80%; /* Adjust the percentage to make the image smaller */
+            max-width: 600px; /* Optional: Set a max-width to prevent the image from getting too large */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center the image */
         }
     </style>
 </head>
@@ -211,18 +220,22 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- Footer Navigation -->
-                        <nav>
-                            <ul class="menu">
+                        <nav id="footer-nav">
+                            <ul>
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#portfolio">Portfolio</a></li>
                                 <li><a href="#services">Services</a></li>
-                                <li><a id="contact" href="#footer">Contact</a></li>
+                                <li><a href="#footer">Contact</a></li>
                             </ul>
                         </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
                         <!-- Social Icons -->
                         <div class="social-icons">
                             <div class="social-icon">
-                                <a href="https://www.linkedin.com/in/jude-marryshow-a04311157" target="_blank" class="icon fa-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.linkedin.com/in/jude-marryshow" target="_blank" class="icon fa-linkedin"><i class="fab fa-linkedin-in"></i></a>
                                 <span class="label">LinkedIn</span>
                             </div>
                             <div class="social-icon">
