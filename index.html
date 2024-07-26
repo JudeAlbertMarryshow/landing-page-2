@@ -10,6 +10,70 @@
         html {
             scroll-behavior: smooth; /* Smooth scrolling */
         }
+        /* Add custom styles for typing effect */
+        .typing-container {
+            text-align: center;
+            height: 8rem; /* Increased height for larger text */
+        }
+
+        .typing-text {
+            font-size: 6rem; /* Increased font size for bigger letters */
+            font-family: 'Arial', sans-serif; /* Adjust as needed to match the original font family */
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid orange; /* Cursor effect */
+            animation: blink-caret .75s step-end infinite;
+            line-height: 6rem; /* Adjusted line height to match font size */
+            padding: 0; /* Remove any default padding */
+            margin: 0; /* Remove any default margin */
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+
+        /* Adjusted styles for chatbot window */
+        #chatbot-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 70%; /* Reduced width by 30% */
+            max-width: 280px; /* Maximum width after reduction */
+            height: 490px; /* Reduced height by 30% */
+            max-height: 490px; /* Maximum height after reduction */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* New styles for social icons and labels */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px; /* Space between icons */
+        }
+
+        .social-icons .social-icon {
+            text-align: center;
+        }
+
+        .social-icons .icon {
+            font-size: 2rem; /* Adjust icon size */
+        }
+
+        .social-icons .label {
+            display: block;
+            margin-top: 10px; /* Space between icon and text */
+            font-size: 1.2rem; /* Increased font size for labels */
+        }
     </style>
 </head>
 <body class="homepage is-preload">
@@ -20,7 +84,9 @@
             <!-- Inner -->
             <div class="inner">
                 <header>
-                    <h1>Jude A. Marryshow</h1>
+                    <div class="typing-container">
+                        <div class="typing-text" id="typing-effect"></div>
+                    </div>
                     <hr />
                     <p>Experienced Software Engineer Specializing in Cutting-Edge Technologies</p>
                 </header>
@@ -32,7 +98,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a id="contact" href="#footer">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -149,10 +215,16 @@
                             </ul>
                         </nav>
                         <!-- Social Icons -->
-                        <ul class="social-icons">
-                            <li><a href="https://github.com/JudeAlbertMarryshow" class="icon brands fa-github" title="GitHub Profile" target="_blank"><span class="label">GitHub</span></a></li>
-                            <li><a href="https://www.linkedin.com/in/jude-marryshow-a04311157" class="icon brands fa-linkedin" title="LinkedIn Profile" target="_blank"><span class="label">LinkedIn</span></a></li>
-                        </ul>
+                        <div class="social-icons">
+                            <div class="social-icon">
+                                <a href="https://www.linkedin.com/in/jude-marryshow-a04311157" class="icon brands fa-linkedin" title="LinkedIn Profile" target="_blank"></a>
+                                <span class="label">LinkedIn</span>
+                            </div>
+                            <div class="social-icon">
+                                <a href="https://github.com/JudeAlbertMarryshow" class="icon brands fa-github" title="GitHub Profile" target="_blank"></a>
+                                <span class="label">GitHub</span>
+                            </div>
+                        </div>
                         <!-- Copyright -->
                         <div class="copyright">
                             <ul class="menu">
@@ -162,6 +234,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Chatbot -->
+        <div id="chatbot-container">
+            <iframe
+                src="https://www.chatbase.co/chatbot-iframe/k2-SDoTckwDVkG8aRiGsC"
+                width="100%"
+                style="height: 100%; border: none;"
+                frameborder="0"
+            ></iframe>
         </div>
 
     </div>
@@ -175,6 +257,24 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        // JavaScript for typing effect
+        const text = "Jude A. Marryshow";
+        let index = 0;
+        const typingEffect = document.getElementById('typing-effect');
 
+        function type() {
+            if (index < text.length) {
+                typingEffect.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust typing speed here
+            }
+        }
+
+        // Start typing effect when page loads
+        window.onload = function() {
+            type();
+        }
+    </script>
 </body>
 </html>
