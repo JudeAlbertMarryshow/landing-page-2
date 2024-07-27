@@ -235,11 +235,15 @@
                         <!-- Social Icons -->
                         <div class="social-icons">
                             <div class="social-icon">
-                                <a href="https://www.linkedin.com/in/jude-marryshow" target="_blank" class="icon fa-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.linkedin.com/in/jude-marryshow-a04311157" target="_blank" class="icon fa-linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
                                 <span class="label">LinkedIn</span>
                             </div>
                             <div class="social-icon">
-                                <a href="https://github.com/judemarryshow" target="_blank" class="icon fa-github"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/JudeAlbertMarryshow" target="_blank" class="icon fa-github">
+                                    <i class="fab fa-github"></i>
+                                </a>
                                 <span class="label">GitHub</span>
                             </div>
                         </div>
@@ -254,43 +258,44 @@
             </div>
         </div>
 
-        <!-- Chatbot -->
-        <div id="chatbot-container">
-            <iframe
-                src="https://www.chatbase.co/chatbot-iframe/k2-SDoTckwDVkG8aRiGsC"
-                frameborder="0"
-            ></iframe>
-        </div>
-
     </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
     <script>
-        // JavaScript for typing effect
-        const text = "Jude A. Marryshow";
+        // Typing effect
+        const typingText = document.getElementById('typing-effect');
+        const texts = ['Python', 'JavaScript', 'HTML', 'CSS', 'AI Enthusiast'];
         let index = 0;
-        const typingEffect = document.getElementById('typing-effect');
+        let textIndex = 0;
 
         function type() {
-            if (index < text.length) {
-                typingEffect.textContent += text.charAt(index);
-                index++;
-                setTimeout(type, 100); // Adjust typing speed here
+            if (index < texts.length) {
+                const text = texts[index];
+                if (textIndex < text.length) {
+                    typingText.textContent += text.charAt(textIndex);
+                    textIndex++;
+                    setTimeout(type, 100); // Adjust typing speed here
+                } else {
+                    setTimeout(() => {
+                        typingText.textContent = '';
+                        textIndex = 0;
+                        index = (index + 1) % texts.length;
+                        type();
+                    }, 1000); // Delay before typing next text
+                }
             }
         }
 
-        // Start typing effect when page loads
-        window.onload = function() {
-            type();
-        }
+        type();
     </script>
+
 </body>
 </html>
